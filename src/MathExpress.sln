@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mathexpress", "mathexpress\mathexpress.csproj", "{BB97521E-1E81-41C3-887A-738610A65510}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathExpress", "MathExpress\MathExpress.csproj", "{BB97521E-1E81-41C3-887A-738610A65510}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mathexpress.tests", "mathexpress.tests\mathexpress.tests.csproj", "{E8E79632-3381-4A31-B600-135B4B8C6211}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathExpress.Tests", "MathExpress.Tests\MathExpress.Tests.csproj", "{E8E79632-3381-4A31-B600-135B4B8C6211}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
