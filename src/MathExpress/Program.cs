@@ -17,49 +17,11 @@ AnsiConsole.Status()
     {
         ctx.Spinner(Spinner.Known.Star);
 
-        var tokens = expression.Split(' ');
+        var evaluator = new ExpressionEvaluator();
+        var (isEvaluationSuccessful, resultOrMessage) = evaluator.Evaluate(expression);
 
-        if (tokens.Length < 3)
-        {
-            AnsiConsole.MarkupLine("Expression is expected to have 3 parts, operand<space>operator<space>operand>");
-        }
-
-        if (!double.TryParse(tokens[0], out double operand1))
-        {
-            AnsiConsole.MarkupLine("Operand expects a numerical value");
-        }
-
-        if (!double.TryParse(tokens[2], out double operand2))
-        {
-            AnsiConsole.MarkupLine("Operand expects a numerical value");
-        }
-
-        double result = 0;
-        bool isEvaluationSuccessful = false;
-        switch (tokens[1])
-        {
-            case "+":
-                result = operand1 + operand2;
-                isEvaluationSuccessful = true;
-                break;
-            case "-":
-                result = operand1 - operand2; isEvaluationSuccessful = true;
-                break;
-            case "/" when operand2 == 0:
-                isEvaluationSuccessful = false;
-                AnsiConsole.MarkupLine("[red]Cannot divide by 0[/]");
-                break;
-            case "/" when operand2 > 0:
-                result = operand1 / operand2; isEvaluationSuccessful = true;
-                break;
-            case "*":
-                result = operand1 * operand2; isEvaluationSuccessful = true;
-                break;
-            default:
-                isEvaluationSuccessful = false;
-                AnsiConsole.MarkupLine("[red]Operation is not suppoprted[/]");
-                break;
-        }
         if (isEvaluationSuccessful)
-          AnsiConsole.MarkupLine($"{expression} = {result}");
+            AnsiConsole.MarkupLine($"{expression} = {resultOrMessage}");
+        else
+            AnsiConsole.MarkupLine(resultOrMessage);
     });
